@@ -10,31 +10,31 @@ pipeline {
         ECR_URL = "${ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
     }
 
+    pipeline {
+    agent any
+
     stages {
 
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/venkateshkumar-star/project-12-03-2026.git'
+                git branch: 'main', url: 'https://github.com/venkateshkumar-star/project-12-03-2026.git'
             }
         }
 
-        stage('Install Python Dependencies') {
+        stage('Build') {
             steps {
-                sh '''
-                python3 -m venv venv
-                . venv/bin/activate
-                pip install -r requirements.txt
-                '''
+                sh 'echo Build Stage'
             }
         }
 
-        stage('Run Tests') {
+        stage('Test') {
             steps {
-                sh '''
-                echo "Run tests here"
-                '''
+                sh 'echo Running Tests'
             }
         }
+
+ 
+
 
         stage('Build Docker Image') {
             steps {
