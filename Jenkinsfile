@@ -3,9 +3,9 @@ pipeline {
     agent any
 
     environment {
-        AWS_REGION = 'us-east-1'
+        AWS_REGION = 'ap-south-1'
         ECR_REPO = 'python-devops-app'
-        ACCOUNT_ID = '123456789012'
+        ACCOUNT_ID = '030926982328'
         IMAGE_TAG = "${BUILD_NUMBER}"
         ECR_URL = "${ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
     }
@@ -14,7 +14,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/your-repo/python-devops-app.git'
+                git 'https://github.com/venkateshkumar-star/project-12-03-2026.git'
             }
         }
 
