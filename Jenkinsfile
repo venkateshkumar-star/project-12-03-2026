@@ -10,9 +10,6 @@ pipeline {
         ECR_URL = "${ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
     }
 
-    pipeline {
-    agent any
-
     stages {
 
         stage('Checkout Code') {
@@ -32,9 +29,6 @@ pipeline {
                 sh 'echo Running Tests'
             }
         }
-
- 
-
 
         stage('Build Docker Image') {
             steps {
